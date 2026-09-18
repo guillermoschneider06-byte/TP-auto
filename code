@@ -1,0 +1,65 @@
+class Alquiler{
+  method alquiler(auto, categoria){
+    auto.suma() = auto.importe()* auto.categoria()
+  }
+}
+
+class auto(tipo, antiguedad, categoria){
+  method categoria(){
+    if (antiguedad >= 10){
+      categoria = categoria.base()
+    }
+    return categoria
+  }
+  method importe(){
+    if (tipo = electrico){
+      importe = AutoElectrico.importe()
+    }
+    else if (tipo = naftero){
+      importe = AutoNaftero.importe()
+    }
+    else if (tipo = agas){
+      importe = AutoaGas.importe()
+    }
+  }
+}
+
+object alquilerBase{
+  const base = 9999
+  
+  method base(){
+    return base
+  }
+}
+
+class AutoElectrico{
+  method importe() { 
+    importe = alquilerBase.base() * (0.05* .facturaDeLuz())
+  return importe
+}
+
+class AutoNaftero{
+   method importe() { 
+    importe = alquilerBase.base() + 2000
+  return importe
+}
+
+class AutoaGas{
+  method importe() { 
+    importe = alquilerBase.base() + 5000
+  return importe
+}
+
+object categoria{
+  const premium = 0.15
+  const base = 0.05
+  
+  method premium(){
+    return premium
+  }
+  
+  method base(){
+    return base
+  }
+}
+}
